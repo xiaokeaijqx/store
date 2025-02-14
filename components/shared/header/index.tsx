@@ -1,4 +1,3 @@
-import {ShoppingCart, UserIcon} from "lucide-react";
 import Image from "next/image"
 import {APP_NAME} from "@/lib/constans";
 import Link from "next/link";
