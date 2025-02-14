@@ -1,7 +1,20 @@
 import React from 'react';
 import ProductCard from "@/components/shared/product/product-card";
-
-const ProductList = ({data, title,limit}: { data: any; title?: string;limit?:number }) => {
+interface Product {
+    name: string;
+    slug: string;
+    category: string;
+    description: string;
+    images: string[];
+    price: number;
+    brand: string;
+    rating: number;
+    numReviews: number;
+    stock: number;
+    isFeatured: boolean;
+    banner: string;
+}
+const ProductList = ({data, title,limit}: { data: never; title?: string;limit?:number }) => {
    const limitedData =limit ? data.slice(0, limit) : data;
     return (
         <div className="my-10">
@@ -9,7 +22,7 @@ const ProductList = ({data, title,limit}: { data: any; title?: string;limit?:num
             {data.length > 0 ? (
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                     {limitedData
-                        .map((product: any) => (
+                        .map((product: Product) => (
                         <ProductCard key={product.slug} product={product}>{product.name}</ProductCard>
 
                     ))}
